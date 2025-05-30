@@ -1,4 +1,5 @@
-IoT-Based-Air-Pollution-Monitoring-System
+# IoT-Based-Air-Pollution-Monitoring-System
+
 This project focuses on real-time air quality monitoring using an IoT-enabled system that detects harmful gases and pollutants through MQ-135 and MQ-5 sensors. Data is processed by an ESP32 microcontroller and transmitted via MQTT protocol to a cloud-based platform. The system offers live visualization of CO, CO₂, CH₄, and other air pollutants through the Blynk mobile application. It empowers individuals, organizations, and authorities with environmental insights to take proactive steps toward healthier air and sustainable living.
 
 🧰 Tech Stack
