@@ -1,50 +1,100 @@
-# IoT-Based-Air-Pollution-Monitoring-System
+# 🌍 IoT-Based Air Pollution Monitoring System
 
-This project focuses on real-time air quality monitoring using an IoT-enabled system that detects harmful gases and pollutants through MQ-135 and MQ-5 sensors. Data is processed by an ESP32 microcontroller and transmitted via MQTT protocol to a cloud-based platform. The system offers live visualization of CO, CO₂, CH₄, and other air pollutants through the Blynk mobile application. It empowers individuals, organizations, and authorities with environmental insights to take proactive steps toward healthier air and sustainable living.
+This project enables **real-time air quality monitoring** using ESP32 and gas sensors (MQ-135 and MQ-5). It detects various harmful gases and transmits live pollutant data to the **Blynk IoT platform** for visualization on your mobile phone.
 
-🧰 Tech Stack
+## 🚀 Features
 
-Microcontroller: ESP32
+- 📡 Real-time monitoring of pollutants like **CO, CO₂, CH₄, NH₃, NO₂, SO₂, H₂**
+- 📲 Live data visualization via the **Blynk mobile app**
+- 🔔 Automatic alerts when unsafe gas thresholds are exceeded
+- 🌐 MQTT cloud-based data transmission
+- 💡 Indicator LEDs for visual alerts
 
-Sensors: MQ-135 (air quality), MQ-5 (gas detection)
+---
 
-Communication Protocol: MQTT
+## 🧰 Tech Stack
 
-Cloud Platform: Blynk IoT
+| Component         | Description                                   |
+|------------------|-----------------------------------------------|
+| **Microcontroller** | ESP32                                       |
+| **Sensors**          | MQ-135 (air quality), MQ-5 (flammable gases) |
+| **Communication**    | MQTT via Wi-Fi                             |
+| **Cloud Platform**   | [Blynk IoT](https://blynk.io)              |
+| **Programming**      | Arduino C++ (via Arduino IDE)              |
 
-Programming Language: C++ (Arduino Framework)
+---
 
-IDE: Arduino IDE
+## 🔌 Hardware Setup
 
-🛠️ Features
+### 📍 Pin Connections
 
-🌫️ Real-time pollutant detection
+| Component        | ESP32 GPIO | Description                    |
+|------------------|------------|--------------------------------|
+| MQ-135           | A2 (GPIO 34) | Analog gas sensor input        |
+| MQ-5             | A3 (GPIO 35) | Analog gas sensor input        |
+| Red LED (MQ-135) | GPIO 12     | ON = MQ-135 detects danger     |
+| Red LED (MQ-5)   | GPIO 26     | ON = MQ-5 detects danger       |
+| Blue LED         | GPIO 13     | ON = Normal/Healthy air        |
 
-📲 Live data visualization on mobile
+*Power both MQ sensors with 5V and connect GND to ESP32 GND.*
 
-☁️ MQTT-based cloud integration
+---
 
-🔧 Modular and scalable design
+## 📲 Blynk Setup (Cloud + Mobile)
 
-📡 Low-power wireless data transmission
+### 1. 🔧 Blynk Cloud Setup
 
-🧪 Sensor Details
+- Go to [https://blynk.cloud](https://blynk.cloud)
+- Create a new template:
+  - Template Name: `Air Pollution Monitor`
+  - Hardware: `ESP32`
+  - Connection Type: `WiFi`
+- Note down:
+  - `BLYNK_TEMPLATE_ID`
+  - `BLYNK_TEMPLATE_NAME`
+  - `BLYNK_AUTH_TOKEN`
+- Create a new device from this template
+- Add Datastreams:
+  | Virtual Pin | Parameter      | Type   |
+  |-------------|----------------|--------|
+  | V0          | NH3            | Gauge  |
+  | V1          | SO2            | Gauge  |
+  | V2          | CO             | Gauge  |
+  | V3          | NO2            | Gauge  |
+  | V4          | CO2            | Gauge  |
+  | V5          | CH4            | Gauge  |
+  | V6          | H2             | Gauge  |
+  | V7          | Avg MQ135 gases | Gauge |
+  | V8          | Avg MQ5 gases   | Gauge |
 
-MQ-135: Detects NH₃, NOₓ, alcohol, benzene, smoke, CO₂
+- Go to **Events** tab and create an event:
+  - Event Name: `air_alert`
+  - Description: `Air Quality Alert`
+  - Enable **Notification**
 
-MQ-5: Detects LPG, natural gas, methane, and CO
+### 2. 📱 Mobile App Setup (Android/iOS)
 
-📱 Mobile Interface
+- Download **Blynk IoT** app from Play Store/App Store
+- Log in with the same credentials
+- Your created device will appear on the dashboard
+- Customize widgets:
+  - Add Gauges/Displays for V0 to V8
+  - Add a Notification box linked to the event `air_alert`
 
-The system uses the Blynk mobile app to display:
+---
 
-Real-time sensor values
+## 📦 Code Configuration
 
-Air quality status indicators
+Replace the following placeholders in the code:
 
-Notification alerts for unsafe levels
+```cpp
+#define BLYNK_TEMPLATE_ID "your_template_id"
+#define BLYNK_TEMPLATE_NAME "your_template_name"
+#define BLYNK_AUTH_TOKEN "your_auth_token"
 
-Historical data logs (optional via cloud setup)
+char ssid[] = "your_wifi_name";
+char pass[] = "your_wifi_password";
+
 
 👥 Contributors
 
