@@ -55,17 +55,17 @@ This project enables **real-time air quality monitoring** using ESP32 and gas se
   - `BLYNK_AUTH_TOKEN`
 - Create a new device from this template
 - Add Datastreams:
-  | Virtual Pin | Parameter      | Type   |
-  |-------------|----------------|--------|
-  | V0          | NH3            | Gauge  |
-  | V1          | SO2            | Gauge  |
-  | V2          | CO             | Gauge  |
-  | V3          | NO2            | Gauge  |
-  | V4          | CO2            | Gauge  |
-  | V5          | CH4            | Gauge  |
-  | V6          | H2             | Gauge  |
-  | V7          | Avg MQ135 gases | Gauge |
-  | V8          | Avg MQ5 gases   | Gauge |
+  | Virtual Pin | Parameter       | Type   |
+  |-------------|------------------|--------|
+  | V0          | NH3              | Gauge  |
+  | V1          | SO2              | Gauge  |
+  | V2          | CO               | Gauge  |
+  | V3          | NO2              | Gauge  |
+  | V4          | CO2              | Gauge  |
+  | V5          | CH4              | Gauge  |
+  | V6          | H2               | Gauge  |
+  | V7          | Avg MQ135 gases  | Gauge  |
+  | V8          | Avg MQ5 gases    | Gauge  |
 
 - Go to **Events** tab and create an event:
   - Event Name: `air_alert`
@@ -95,8 +95,9 @@ Replace the following placeholders in the code:
 char ssid[] = "your_wifi_name";
 char pass[] = "your_wifi_password";
 
-### 👤 Contributors
+```
+---
+## 👤 Contributors
 
 - [Manjunatha H B](https://github.com/manjunathahb)
 - [Mayura Varma Jain](https://github.com/mayuravarmajain)
-
