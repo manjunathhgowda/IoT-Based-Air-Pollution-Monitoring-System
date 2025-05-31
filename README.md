@@ -95,8 +95,8 @@ Replace the following placeholders in the code:
 char ssid[] = "your_wifi_name";
 char pass[] = "your_wifi_password";
 
+### 👤 Contributors
 
-👥 Contributors
+- [Manjunatha H B](https://github.com/manjunathahb)
+- [Mayura Varma Jain](https://github.com/mayuravarmajain)
 
-Manjunatha H B
-Mayura Varma Jain
