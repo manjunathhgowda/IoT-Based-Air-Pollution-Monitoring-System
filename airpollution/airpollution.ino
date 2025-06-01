@@ -1,13 +1,13 @@
-#define BLYNK_TEMPLATE_ID "TMPL3iZjOwTo8"
-#define BLYNK_TEMPLATE_NAME "Air Pollution Monitoring System"
-#define BLYNK_AUTH_TOKEN "sRsAr468g0LpQm1Tfo7GYZce4xNGf1e8"
+#define BLYNK_TEMPLATE_ID "your_blynk_template_id"
+#define BLYNK_TEMPLATE_NAME "your_blynk_template_name"
+#define BLYNK_AUTH_TOKEN "your_blynk_auth_token"
 
 #include <WiFi.h>
 #include <BlynkSimpleEsp32.h>
 
 char auth[] = BLYNK_AUTH_TOKEN;
-char ssid[] = "mayuravarma";
-char pass[] = "mayuravarma";
+char ssid[] = "your_wifi_name";
+char pass[] = "your_wifi_password";
 
 // MQ Sensor Pins
 #define MQ135_PIN     34
@@ -120,7 +120,7 @@ void loop() {
     body += "CH4: " + String(ch4_ppm, 2) + " ppm\n";
     body += "H2: " + String(h2_ppm, 2) + " ppm\n";
 
-    Blynk.logEvent("pollution_alert", body);
+    Blynk.logEvent("your_blynk_event_name", body);
     alertSent = true;
   }
 
